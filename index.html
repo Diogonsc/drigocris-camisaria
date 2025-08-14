@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Site de bio da Drigo Cris Camisaria - Acesse nosso site, WhatsApp e localização">
+	<meta name="keywords" content="moda, roupas, Cris Drigo, loja">
+	<meta name="author" content="Drigo Cris Camisaria">
+	<meta property="og:title" content="Drigo Cris Camisaria">
+	<meta property="og:description" content="Site de bio da Drigo Cris Camisaria">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://cris-drigo-bio.vercel.app">
+	<meta name="twitter:card" content="summary_large_image">
+	<title>Drigo Cris Camisaria</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f4ed;
+			min-height: 100vh;
+			margin: 0;
+			padding: 0;
+		}
+
+		.banner {
+			width: 100%;
+			height: 50vh;
+			position: relative;
+			overflow: hidden;
+			background-color: #9bae92;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			padding-top: 2rem;
+		}
+
+		.banner-image {
+			width: 100%;
+			max-width: 1200px;
+			height: auto;
+			max-height: 35vh;
+			object-fit: contain;
+		}
+
+		.banner-gradient {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to bottom, transparent 0%, rgba(155, 174, 146, 0.1) 50%, rgba(155, 174, 146, 0.3) 75%, rgba(155, 174, 146, 0.7) 100%);
+			pointer-events: none;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 0rem;
+			width: 100%;
+			max-width: fit-content;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		.child {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #f8faf7;
+			border-radius: 6px;
+			overflow: hidden;
+		}
+
+		.child img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.child a {
+			display: block;
+			width: 100%;
+			text-decoration: none;
+			cursor: pointer;
+			transition: transform 0.2s ease;
+		}
+
+		.child a:hover {
+			transform: scale(1.02);
+		}
+
+		.footer {
+			background-color: #f8faf7;
+			padding: 1.5rem 0;
+			text-align: center;
+			border-top: 1px solid rgba(155, 174, 146, 0.3);
+			margin-top: 2rem;
+		}
+
+		.footer p {
+			color: #666;
+			font-size: 0.9rem;
+			margin: 0;
+			font-weight: 400;
+		}
+
+		.footer .brand {
+			color: #9bae92;
+			font-weight: 600;
+		}
+
+		/* Responsividade para mobile */
+		@media (max-width: 768px) {
+			.banner {
+				height: 35vh;
+				padding-top: 1rem;
+			}
+
+			.banner-image {
+				max-width: 100%;
+				max-height: 30vh;
+				width: 100%;
+			}
+
+			.container {
+				padding: 0 1rem 2rem 1rem;
+				max-width: 100%;
+			}
+
+			.child {
+				width: 100%;
+			}
+
+			.footer {
+				padding: 1rem 0;
+				margin-top: 1rem;
+			}
+
+			.footer p {
+				font-size: 0.8rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<img src="assets/banner.png" alt="Banner" class="banner-image">
+		<div class="banner-gradient"></div>
+	</div>
+	<div class="container">
+		<div class="child">
+			<a href="https://drigocriscamisaria.vercel.app/" target="_blank" rel="noopener noreferrer">
+				<img src="assets/bio-01.svg" alt="Site">
+			</a>
+		</div>
+		<div class="child">
+			<a href="https://wa.me/5521982852402?text=Olá! Gostaria de saber mais sobre os produtos da Drigo Cris Camisaria" target="_blank" rel="noopener noreferrer">
+				<img src="assets/bio-02.svg" alt="WhatsApp">
+			</a>
+		</div>
+		<div class="child">
+			<a href="https://maps.app.goo.gl/Q9dezz9NFdc7REjS9" target="_blank" rel="noopener noreferrer">
+				<img src="assets/bio-03.svg" alt="Localização">
+			</a>
+		</div>
+	</div>
+	<footer class="footer">
+		<p>Todos os direitos reservados © <span id="current-year"></span> <span class="brand">Drigo Cris Camisaria</span></p>
+	</footer>
+
+	<script>
+		// Função para detectar se é dispositivo móvel
+		function isMobile() {
+			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+		}
+
+		// Função para abrir WhatsApp com melhor compatibilidade
+		function openWhatsApp() {
+			const phoneNumber = '5521982852402'; // Substitua pelo número correto
+			const message = encodeURIComponent('Olá! Gostaria de saber mais sobre os produtos da Cris & Drigo Modas');
+			
+			if (isMobile()) {
+				// Para dispositivos móveis, tenta abrir o app diretamente
+				window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
+			} else {
+				// Para desktop, usa o link web
+				window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+			}
+		}
+
+		// Adiciona evento de clique ao link do WhatsApp
+		document.addEventListener('DOMContentLoaded', function() {
+			// Atualiza o ano no footer
+			const yearElement = document.getElementById('current-year');
+			if (yearElement) {
+				yearElement.textContent = new Date().getFullYear();
+			}
+
+			const whatsappLink = document.querySelector('a[href*="wa.me"]');
+			if (whatsappLink) {
+				whatsappLink.addEventListener('click', function(e) {
+					e.preventDefault();
+					openWhatsApp();
+				});
+			}
+		});
+	</script>
+</body>
+</html>
